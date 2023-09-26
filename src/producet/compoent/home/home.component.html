@@ -1,0 +1,22 @@
+<div class="home">
+    <div class="w-20">
+
+        <app-select [data]="categorie" (send)="select($event)" ></app-select>
+    </div>
+      <div class="container">
+        <app-spinner *ngIf="loader"></app-spinner>
+      </div>
+        <div  *ngIf="!loader" class="row">
+            <div *ngFor="let item of data " class="col-md-3" style="margin-top: 150px;">
+                <div class="card" style="width: 18rem;">
+                    <img [src]="item.image" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5>{{item.title}}</h5>
+                      <p>{{item.price | currency}}</p>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a routerLink="/detalis/{{item.id}}" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+</div>
